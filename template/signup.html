@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "components/head.html" %}
+<body>
+    {% include "components/loader.html" %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Signup</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3 w-100">
+                                {{ form.username.label_tag }}
+                                <br>
+                                {{ form.username }}
+                                {{ form.username.errors }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.email.label_tag }}
+                                <br>
+                                {{ form.email }}
+                                {{ form.email.errors }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.password.label_tag }}
+                                <br>
+                                {{ form.password }}
+                                {{ form.password.errors }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form.confirm_password.label_tag }}
+                                <br>
+                                {{ form.confirm_password }}
+                                {{ form.confirm_password.errors }}
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "components/scripts.html" %}
+</body>
+</html>

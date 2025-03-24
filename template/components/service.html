@@ -1,0 +1,23 @@
+{% load static %}
+<section class="ftco-section bg-light ftco-no-pt ftco-intro">
+    <div class="container">
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+                <div class="d-block services text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="{{ service.icon }}"></span>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">{{ service.title }}</h3>
+                        <p>{{ service.description }}</p>
+                        <a href="{{ service.link }}" class="btn-custom d-flex align-items-center justify-content-center">
+                            <span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    {% include "components/head.html" %}
+    <body>
+        {% include "components/loader.html" %}
+        {% include "components/nav.html" %}
+        {% include "components/hero.html" %}
+        {% include "components/service.html" %}
+        {% include "components/whywe.html" %}
+        {% include "components/Counter.html" %}
+        {% include "components/faq.html" %}
+        {% include "components/pakages.html" %}
+        {% include "components/footer.html" %}
+        
+        <!-- Display success message -->
+        {% if messages %}
+            <div class="container mt-4">
+                <div class="alert alert-success">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+        {% include "components/scripts.html" %}
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center pb-5 mb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2>Pet LIST</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for pet in pets %}
+            <div class="col-md-4 ftco-animate">
+                <div class="block-7">
+                    <div class="img" style="background-image: url({{ pet.image.url }});"></div>
+                    <div class="text-center p-4">
+                        <span class="excerpt d-block">{{ pet.name }}</span>
+                        <span class="price"><span class="number">{{ pet.age }}</span> <sub>years old</sub></span>
+                        <ul class="pricing-text mb-5">
+                            <li><span class="fa fa-paw mr-2"></span>Breed: {{ pet.breed }}</li>
+                            <li><span class="fa fa-info-circle mr-2"></span>{{ pet.description }}</li>
+                        </ul>
+                        
+                        {% if pet.is_adopted %}
+                        <!-- If pet is adopted, show "Adopted" text with red color -->
+                        <span class="text-danger">Adopted</span>
+                        {% else %}
+                            {% if user.is_authenticated %}
+                            <!-- If user is logged in, show the Adopt button -->
+                            <form action="{% url 'adopt_pet' pet.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary d-block px-2 py-3">Adopt</button>
+                            </form>
+                            {% else %}
+                            <!-- If user is not logged in, show Login and Signup buttons -->
+                            <a href="{% url 'login' %}" class="btn btn-primary d-block px-2 py-3">Login to Adopt</a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
