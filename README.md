@@ -8,5 +8,5 @@ A fully dynamic pet-related web application built with HTML, JavaScript, Bootstr
 ✅ User-friendly interface for **pet listings, adoption, and management**  
 
 
-🔗 Live Demo (if hosted) | 📜 License: MIT
+🔗 Live Demo (if hosted)
 ![Firefox_Screenshot_2025-03-24T10-52-46 121Z](https://github.com/user-attachments/assets/84093ba9-c52e-4542-bf60-a1847c8dd5ee)
